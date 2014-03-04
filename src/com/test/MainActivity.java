@@ -49,7 +49,6 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onPause() {
         super.onPause();
 
-        //unregisterReceiver(mBroadcastReceiver);
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mBroadcastReceiver);
     }
     
@@ -57,7 +56,6 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onResume() {
         super.onResume();
         
-        //registerReceiver(mBroadcastReceiver, new IntentFilter(MyCustomReceiver.intentAction));
         LocalBroadcastManager.getInstance(this).registerReceiver(mBroadcastReceiver, new IntentFilter(MyCustomReceiver.intentAction));
     }
     
