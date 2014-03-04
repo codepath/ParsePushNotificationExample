@@ -7,8 +7,8 @@ import android.app.Application;
 
 public class MainApp extends Application {
 	
-    private static final String parse_app_id = "4UgZtiv4tiEQrmPVGsct6XS6SVLGnrXA0kNggThY";
-    private static final String parse_client_key = "P4L7TLK7dlWh94cUTR6R0GYs8mDos5savWVlWXqV";
+    private static final String parse_app_id = "YOUR_APP_ID";
+    private static final String parse_client_key = "YOUR_CLIENT_KEY";
 
 	@Override
 	public void onCreate() {
