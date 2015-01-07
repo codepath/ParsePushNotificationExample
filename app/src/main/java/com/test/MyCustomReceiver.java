@@ -5,9 +5,11 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -59,7 +61,7 @@ public class MyCustomReceiver extends BroadcastReceiver {
    // Create a local dashboard notification to tell user about the event
    private void createNotification(Context context) {
        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context).setSmallIcon(
-          		R.drawable.ic_launcher).setContentTitle("Successfully logged in");
+               R.drawable.ic_launcher).setContentTitle("Successfully logged in");
        NotificationManager mNotificationManager = (NotificationManager) context
           		.getSystemService(Context.NOTIFICATION_SERVICE);
        mNotificationManager.notify(45, mBuilder.build());
@@ -67,7 +69,7 @@ public class MyCustomReceiver extends BroadcastReceiver {
    
    // Handle push notification by invoking activity directly
    private void launchSomeActivity(Context context, String datavalue) {
-       Intent pupInt = new Intent(context, ShowPopUpActivity.class);
+       Intent pupInt = new Intent(context, ShowPopUp.class);
        pupInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK );
        pupInt.putExtra("customdata", datavalue);
        context.getApplicationContext().startActivity(pupInt);	
