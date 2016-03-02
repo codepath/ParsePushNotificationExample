@@ -1,8 +1,8 @@
 # Parse Push Notification Sample Code
 
-This source code was originally created by Vishal Kapoor as part of our Jan 2015 Android bootcamp. The code has been updated significantly by Roger Hu on March 3rd, 2016 to reflect Parse Server.
+This sample code demonstrates a working example of push notifications with Parse! This source code was originally created by Vishal Kapoor as part of our Jan 2015 Android bootcamp. The code has been updated significantly by Roger Hu on March 3rd, 2016 to reflect Parse Server.
 
-See our [cxonfiguring parse server push notifications guide](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-push-notifications) for more details.
+See our [configuring parse server push notifications guide](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-push-notifications) for more details.
 
 ### Setup
 
