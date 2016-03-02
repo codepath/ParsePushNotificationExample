@@ -1,8 +1,8 @@
 # Parse Push Notification Sample Code
 
-...
+This source code was originally created by Vishal Kapoor as part of our Jan 2015 Android bootcamp. The code has been updated significantly by Roger Hu on March 3rd, 2016 to reflect Parse Server.
 
-This source code was originally created by Vishal Kapoor as part of our Jan Android bootcamp.
+See our [cxonfiguring parse server push notifications guide](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-push-notifications) for more details.
 
 ### Setup
 
@@ -15,7 +15,6 @@ This source code was originally created by Vishal Kapoor as part of our Jan Andr
 Make sure you have your Parse cloud server configured with the `pushChannelTest` function:
 
 ```javascript
-
 Parse.Cloud.define('pushChannelTest', function(request, response) {
 
   // request has 2 parameters: params passed by the client and the authorized user
