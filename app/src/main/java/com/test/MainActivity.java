@@ -1,8 +1,7 @@
 package com.test;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.parse.ParseCloud;
 
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -17,10 +16,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.parse.ParseInstallation;
-import com.parse.ParsePush;
-import com.parse.ParseQuery;
-import com.parse.PushService;
+import java.util.HashMap;
 
 public class MainActivity extends Activity implements OnClickListener {
 
@@ -38,8 +34,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		PushService.setDefaultPushCallback(this, MainActivity.class);
 
 		push = (Button)findViewById(R.id.senPushB);
 		push.setOnClickListener(this);
@@ -68,26 +62,12 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-
-		JSONObject obj;
-		try {
-			obj = new JSONObject();
-			obj.put("alert", "hello!");
-			obj.put("action", MyCustomReceiver.intentAction);
-			obj.put("customdata","My message");
-			
-			ParsePush push = new ParsePush();
-			ParseQuery query = ParseInstallation.getQuery();
-			
-			// Push the notification to Android users
-			query.whereEqualTo("deviceType", "android");
-			push.setQuery(query);
-			push.setData(obj);
-			push.sendInBackground(); 
-		} catch (JSONException e) {
-
-			e.printStackTrace();
-		}
+		
+		HashMap<String, String> payload = new HashMap<>();
+		payload.put("message", "hello!");
+		payload.put("action", "SEND_PUSH");
+		payload.put("customData", "My message");
+		ParseCloud.callFunctionInBackground("pushChannelTest", payload);
 	}
 
 	

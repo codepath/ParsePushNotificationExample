@@ -1,7 +1,5 @@
 package com.test;
 
-import java.util.Iterator;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,9 +11,11 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.Iterator;
+
 public class MyCustomReceiver extends BroadcastReceiver {
    private static final String TAG = "MyCustomReceiver";
-   public static final String intentAction = "SEND_PUSH";
+   public static final String intentAction = "com.parse.push.intent.RECEIVE";
 
    @Override
    public void onReceive(Context context, Intent intent) {
