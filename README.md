@@ -50,3 +50,9 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
 });
 
 ```
+
+You can verify that the Parse Cloud function works by using this curl command (make sure the application ID matches):
+
+```bash
+ curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" -d '{"action": "SEND_PUSH", "message": "hello", "customData": "My message"}' https://yourappname.herokuapp.com/parse/functions/pushChannelTest
+```
