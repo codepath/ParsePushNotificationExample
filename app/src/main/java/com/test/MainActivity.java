@@ -64,8 +64,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		
 		HashMap<String, String> payload = new HashMap<>();
-		payload.put("message", "hello!");
-		payload.put("action", "SEND_PUSH");
 		payload.put("customData", "My message");
 		ParseCloud.callFunctionInBackground("pushChannelTest", payload);
 	}
