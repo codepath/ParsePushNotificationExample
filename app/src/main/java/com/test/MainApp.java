@@ -1,11 +1,11 @@
 package com.test;
 
+import android.app.Application;
+
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.interceptors.ParseLogInterceptor;
 import com.parse.interceptors.ParseStethoInterceptor;
-
-import android.app.Application;
 
 public class MainApp extends Application {
 
@@ -18,6 +18,7 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(PARSE_APP_ID)
                 .clientKey(null) // no client key needed in Parse open source
