@@ -4,10 +4,6 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-sdk
-        android:minSdkVersion="23"
-        android:targetSdkVersion="23" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -15,14 +11,11 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <!--
-  IMPORTANT: Change "com.codepath.parseportpush.permission.C2D_MESSAGE" in the lines below
-  to match your app's package name + ".permission.C2D_MESSAGE".
--->
+    <!-- Use {packageName} and you never have to worry about this perm-->
     <permission
-        android:name="com.test.permission.C2D_MESSAGE"
+        android:name="${packageName}.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
-    <uses-permission android:name="com.test.permission.C2D_MESSAGE" />
+    <uses-permission android:name="${packageName}.permission.C2D_MESSAGE" />
 
     <application
         android:name="com.test.MainApp"
@@ -64,10 +57,8 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <!--
-                  IMPORTANT: Change "com.test" to match your app's package name.
-                -->
-                <category android:name="com.test" />
+                <!-- Use ${packageName} and you never have to worry about setting this permission. -->
+                <category android:name="${packageName}" />
             </intent-filter>
         </receiver>
     </application>
