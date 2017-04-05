@@ -2,7 +2,7 @@
 
 This sample code demonstrates a working example of push notifications with Parse! This source code was originally created by Vishal Kapoor as part of our Jan 2015 Android bootcamp. The code has been updated significantly by Roger Hu on March 3rd, 2016 to reflect Parse Server.
 
-See our [configuring parse server push notifications guide](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-push-notifications) for more details.  Make sure to add a Parse Cloud function similar to the one defined [here](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js#L2).
+See our [configuring parse server push notifications guide](https://guides.codepath.com/android/Configuring-a-Parse-Server#enabling-push-notifications) for more details.  Make sure to add a Parse Cloud function (`cloud/main.js`) similar to the one defined [here](https://github.com/codepath/parse-server-example/blob/master/cloud/main.js).
 
 ### Setup
 
@@ -15,7 +15,7 @@ See our [configuring parse server push notifications guide](https://guides.codep
 Make sure you have your Parse cloud server configured with the `pushChannelTest` function:
 
 ```javascript
-// Depends on this function: https://github.com/codepath/parse-server-example/blob/master/cloud/main.js#L2
+// Depends on this function: https://github.com/codepath/parse-server-example/blob/master/cloud/main.js
 Parse.Cloud.define('pushChannelTest', function(request, response) {
 
   // request has 2 parameters: params passed by the client and the authorized user
@@ -55,5 +55,5 @@ Parse.Cloud.define('pushChannelTest', function(request, response) {
 You can verify that the Parse Cloud function works by using this curl command (make sure the application ID matches):
 
 ```bash
- curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" -d '{"action": "SEND_PUSH", "message": "hello", "customData": "My message"}' https://yourappname.herokuapp.com/parse/functions/pushChannelTest
+ curl -X POST -H "X-Parse-Application-Id: myAppId" -H "Content-Type: application/json" -d '{"data": {"alert": "My message"}}' https://yourappname.herokuapp.com/parse/functions/pushChannelTest
 ```
