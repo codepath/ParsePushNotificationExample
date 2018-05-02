@@ -19,8 +19,8 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:27.1.1'
-    compile 'com.parse:parse-android:1.15.7'
-    compile 'com.parse:parseinterceptors:0.0.2'
-    compile 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.parse:parse-android:1.16.7'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+    implementation 'com.facebook.stetho:stetho:1.5.0'
 }
