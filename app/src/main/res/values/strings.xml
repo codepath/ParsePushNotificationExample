@@ -4,5 +4,4 @@
     <string name="app_name">PushNotificationDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    <string name="gcm_sender_id">id:123</string>
 </resources>

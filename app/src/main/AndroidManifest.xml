@@ -36,12 +36,6 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.Dialog"></activity>
 
-        <meta-data
-            android:name="com.parse.push.gcm_sender_id"
-            android:value="@string/gcm_sender_id" />
-
-        <service android:name="com.parse.PushService" />
-
         <receiver
             android:name="com.test.MyCustomReceiver"
             android:exported="false">
@@ -51,16 +45,19 @@
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
+        <service
+            android:name="com.parse.fcm.ParseFirebaseInstanceIdService"
+            android:exported="true">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <!-- Use ${packageName} and you never have to worry about setting this permission. -->
-                <category android:name="${packageName}" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
-        </receiver>
+        </service>
+        <service
+            android:name="com.parse.fcm.ParseFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>-->
     </application>
 
 </manifest>

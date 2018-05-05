@@ -3,7 +3,6 @@ package com.test;
 import android.app.Application;
 
 import com.parse.Parse;
-import com.parse.ParseInstallation;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -19,6 +18,8 @@ public class MainApp extends Application {
     public void onCreate() {
         super.onCreate();
 
+        // FCM token will be automatically registered by ParseFirebaseJobService
+        // Look for ParseFCM log messages to confirm
         Parse.setLogLevel(Parse.LOG_LEVEL_DEBUG);
 
         // Use for monitoring Parse OkHttp traffic
@@ -36,7 +37,5 @@ public class MainApp extends Application {
                 .clientBuilder(builder)
                 .build());
 
-        // Need to register GCM token
-        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 }
