@@ -6,11 +6,15 @@ See our [configuring parse server push notifications guide](https://guides.codep
 
 ### Setup
 
-1. Update `res/strings.xml` and update your GCM sender ID.
+1. Configure your Firebase app in the [console](https://console.firebase.google.com) and register a new Android app.  
 
-2. Update your `PARSE_CLOUD_SERVER_URL` in `MainApp.java`.
+2. Make sure to record the Android package name used and download the `google-services.json` file.  Add it to your `app/` dir (see [these docs](https://developers.google.com/android/guides/google-services-plugin#adding_the_json_file) more information.)
 
-3. Update your `PARSE_APP_ID` in `MainApp.java`.
+3. Verify the `applicationId` in your AndroidManifest.xml matches the package name defined for your Firebase app.  
+
+4. Update your `PARSE_CLOUD_SERVER_URL` in `MainApp.java`.
+
+5. Update your `PARSE_APP_ID` in `MainApp.java`.
 
 Make sure you have your Parse cloud server configured with the `pushChannelTest` function:
 
